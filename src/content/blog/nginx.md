@@ -14,13 +14,13 @@ add_header 'Access-Control-Allow-Headers' 'X-Origin,X-User-Id,SCM-Authorization,
 
 
 location / {
-  if($request_method='OPTIONS') {
+  if ($request_method = 'OPTIONS') {
     return 204;
   }
 }
 
 location ^~ /api/ {
-  if($request_method='OPTIONS') {
+  if ($request_method = 'OPTIONS') {
     return 204;
   }
 }
