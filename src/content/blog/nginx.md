@@ -79,7 +79,7 @@ let app = new Vue({
 ```
 
 
-<!-- 详细可参考 [MicroApp文档](https://zeroing.jd.com/docs.html#/zh-cn/framework/vue); -->
+详细可参考 [MicroApp文档](https://zeroing.jd.com/docs.html#/zh-cn/framework/vue);
 
 <!-- 主要有3个点需要注意: 
 1. 路由basepath;
