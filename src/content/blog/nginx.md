@@ -5,6 +5,7 @@ pubDate: '2023-11-22'
 ---
 
 ##### nginx 配置如下;
+nginx 配置主要解决跨域问题, 可以参考下列配置
 
 ``` nginx
 add_header 'Access-Control-Allow-Origin' $http_origin always;
@@ -38,6 +39,43 @@ location ^~ /api/ {
 if (window.__MICRO_APP_ENVIRONMENT__) {
   console.log('我在微前端环境中')
 }
+```
+
+2. 使用了浏览器路由 请用 window.__MICRO_APP_BASE_ROUTE__ 设置basename
+
+react
+```js
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+export default function AppRoute () {
+  return (
+    // 👇 设置基础路由，子应用可以通过window.__MICRO_APP_BASE_ROUTE__获取主应用下发的baseroute，如果没有设置baseroute属性，则此值默认为空字符串
+    <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
+      ...
+    </BrowserRouter>
+  )
+}
+
+```
+
+vue
+```js 
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import routes from './router'
+
+const router = new VueRouter({
+  // 👇 设置基础路由，子应用可以通过window.__MICRO_APP_BASE_ROUTE__获取主应用下发的baseroute，如果没有设置baseroute属性，则此值默认为空字符串
+  base: window.__MICRO_APP_BASE_ROUTE__ || '/',
+  routes,
+})
+
+let app = new Vue({
+  router,
+  render: h => h(App),
+}).$mount('#app')
+
 ```
 
 
