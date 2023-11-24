@@ -78,6 +78,14 @@ let app = new Vue({
 
 ```
 
+3. 如何项目中使用了相对路径, 请配置动态public path
+4. 
+```
+  if (window.__MICRO_APP_ENVIRONMENT__) {
+    // eslint-disable-next-line
+    __webpack_public_path__ = window.__MICRO_APP_PUBLIC_PATH__
+  }
+```
 
 详细可参考 [MicroApp文档](https://zeroing.jd.com/docs.html#/zh-cn/framework/vue);
 
