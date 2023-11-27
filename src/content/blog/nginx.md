@@ -41,7 +41,7 @@ if (window.__MICRO_APP_ENVIRONMENT__) {
 }
 ```
 
-2. 使用了浏览器路由 请用 window.__MICRO_APP_BASE_ROUTE__ 设置basename
+2. 使用了`浏览器路由` 请用 window.__MICRO_APP_BASE_ROUTE__ 设置basename
 
 react
 ```js
@@ -79,8 +79,8 @@ let app = new Vue({
 ```
 
 3. 如何项目中使用了相对路径, 请配置动态public path
-4. 
-```
+  
+``` js
   if (window.__MICRO_APP_ENVIRONMENT__) {
     // eslint-disable-next-line
     __webpack_public_path__ = window.__MICRO_APP_PUBLIC_PATH__
